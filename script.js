@@ -19,7 +19,7 @@ function getComputerChoice() {
     }
     return choice;
 }
-let computerChoice = getComputerChoice();
+// let computerChoice = getComputerChoice();
 
 
 
@@ -30,11 +30,11 @@ The computer will return user choice
 */
 
 function getHumanChoice() {
-    let userChoice = prompt("Rock? Paper? Scissors?");
-    userChoice = userChoice.toLowerCase();
-    return userChoice;
+    let humanChoice = prompt("Rock? Paper? Scissors?");
+    humanChoice = humanChoice.toLowerCase();
+    return humanChoice;
 }
-let userChoice = getHumanChoice();
+// let humanChoice = getHumanChoice();
 
 /*
 Create variables for computer and user score
@@ -69,15 +69,51 @@ function playRound(humanChoice, computerChoice) {
     } else if (humanChoice == "scissors" && computerChoice == "rock") {
         console.log("You lose! Rock beats Scissors");
         computerScore++;
-    } else if (humanChoice == computerChoice){
+    } else if (humanChoice == "rock" && computerChoice == "rock" || humanChoice == "paper" && computerChoice == "paper" || humanChoice == "scissors" && computerChoice == "scissors"){
         console.log("Nobody wins. It's a Tie!");
     }
+    return computerScore;
+    return humanScore;
 
 }
-playRound(userChoice, computerChoice);
+// playRound(humanChoice, computerChoice);
+
 
 /*
 Need to be able to play the game for 5 rounds
 Keep track of score across rounds
 Announces winner at the end
 */
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+    const computerChoice = getComputerChoice();
+    const humanChoice = getHumanChoice();
+    playRound(humanChoice, computerChoice);    
+    console.log("Computer Score is: " + computerScore);
+    console.log("User Score is: " + humanScore);
+}
+    // console.log("Computer Score is: " + computerScore);
+    // console.log("User Score is: " + humanScore);
+    // getComputerChoice();
+    // getHumanChoice();
+    // playRound();
+    return humanScore;
+    return computerScore;
+}
+playGame();
+
+// for (let i = 0; i < 4; i++) {
+//     playGame();
+// }
+
+function winner() {
+    if (humanScore > computerScore) {
+        console.log("Congratulations you won!");
+} else if (humanScore < computerScore) {
+    console.log("You suck loser!");
+} else {
+    console.log("It's a tie!");
+}
+}
+winner();
